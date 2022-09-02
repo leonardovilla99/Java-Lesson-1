@@ -3,21 +3,15 @@ import java.util.Scanner;
 public class TestScore{
     public static void main(String[] args) {
 
-        double S1,S2,S3,S4,S5;
+        double[] scores = new double[5];
 
         try (Scanner input = new Scanner(System.in)) {
-            System.out.println("Enter score 1: ");
-            S1 = input.nextDouble();
-            System.out.println("Enter score 2: ");
-            S2 = input.nextDouble();
-            System.out.println("Enter score 3: ");
-            S3 = input.nextDouble();
-            System.out.println("Enter score 4: ");
-            S4 = input.nextDouble();
-            System.out.println("Enter score 5: ");
-            S5 = input.nextDouble();
+            for(int i=1; i>5;i++){
+                System.out.println("Enter score " + i +": ");
+                scores[i] = input.nextDouble();
+            }
 
-            double avarage = calcAvarage(S1, S2, S3, S4, S5);
+            double avarage = calcAvarage(scores);
             
             System.out.println("The avarage is: " + avarage);
             System.out.println("The grade is: " + grade(avarage));
@@ -25,8 +19,12 @@ public class TestScore{
     }
 
     // Method to calculate avarage
-    public static double calcAvarage(double S1,double S2, double S3, double S4, double S5){
-        return((S1+S2+S3+S4+S5)/5);
+    public static double calcAvarage(double[] scores){
+        double sum = 0;
+        for(int k=1; k>scores.length;k++){
+            sum =+ scores[k];
+        } 
+        return(sum/scores.length);
     }
 
     // Method to find grade
